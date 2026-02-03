@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bwjflqupgciva"]
+
+[ext_resource type="Script" uid="uid://coe867s5ou2rw" path="res://character_body_2d.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://wqw34iiaw63d" path="res://New Piskel.png" id="2_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(1168, 104)
+
+[node name="Main" type="Node2D" unique_id=2128949112]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=555175175]
+position = Vector2(136, 520)
+script = ExtResource("1_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=349839633]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=301335072]
+texture = ExtResource("2_h2yge")
+
+[node name="GRound" type="StaticBody2D" parent="." unique_id=1147412154]
+position = Vector2(585, 590)
+
+[node name="Sprite2D" type="Sprite2D" parent="GRound" unique_id=1686052271]
+position = Vector2(-9, 14.000001)
+scale = Vector2(36.64, 3.2800035)
+texture = ExtResource("2_h2yge")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GRound" unique_id=1702398783]
+position = Vector2(-9, 14)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=400738335]
+position = Vector2(317.99994, 471.00003)
+scale = Vector2(0.061626077, 0.5998871)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1367336720]
+position = Vector2(-9, 14.000001)
+scale = Vector2(36.64, 3.2800035)
+texture = ExtResource("2_h2yge")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1303573400]
+position = Vector2(-9, 14)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=235697376]
+position = Vector2(453, 411.00003)
+scale = Vector2(0.061626077, 0.5998871)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3" unique_id=1934873157]
+position = Vector2(-9, 14.000001)
+scale = Vector2(36.64, 3.2800035)
+texture = ExtResource("2_h2yge")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1614777661]
+position = Vector2(-9, 14)
+shape = SubResource("RectangleShape2D_0xm2m")

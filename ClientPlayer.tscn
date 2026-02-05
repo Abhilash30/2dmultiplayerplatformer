@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ckcvhw0py04mi"]
+
+[ext_resource type="Script" uid="uid://bm430t83m5vs3" path="res://character_body_2d_client.gd" id="1_5dstl"]
+[ext_resource type="Texture2D" uid="uid://wqw34iiaw63d" path="res://New Piskel.png" id="2_14dgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(32, 32)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kpjcp"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1828279768]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_5dstl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1193518445]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518303808]
+texture = ExtResource("2_14dgp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1907744985]
+position = Vector2(110, -80)
+zoom = Vector2(2, 2)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1295047191]
+replication_config = SubResource("SceneReplicationConfig_kpjcp")

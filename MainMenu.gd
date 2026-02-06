@@ -14,4 +14,4 @@ func _on_host_button_down() -> void:
 func _on_join_button_down() -> void:
 	HighLevelNetworkHandler.start_client()
 	visible = false
-	pass # Replace with function body.
+	

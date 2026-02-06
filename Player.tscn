@@ -1,7 +1,21 @@
 [gd_scene format=3 uid="uid://bqcmsvloqt0q8"]
 
 [ext_resource type="Script" uid="uid://coe867s5ou2rw" path="res://character_body_2d.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://wqw34iiaw63d" path="res://New Piskel.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://b8tao58tedre6" path="res://Art assets/Tiles/Transparent/tile_0240.png" id="2_tdg3f"]
+[ext_resource type="Texture2D" uid="uid://bsj0ings177m6" path="res://Art assets/Tiles/Transparent/tile_0241.png" id="3_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://c6bax2v0v1dkx" path="res://Art assets/Tiles/Transparent/tile_0242.png" id="4_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://btoflxrva4mh3" path="res://Art assets/Tiles/Transparent/tile_0243.png" id="5_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://c17hsfhwf5r8v" path="res://Art assets/Tiles/Transparent/tile_0244.png" id="6_hp6x6"]
+
+[sub_resource type="Gradient" id="Gradient_tdg3f"]
+offsets = PackedFloat32Array(0, 0.7108434)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dtqjt"]
+gradient = SubResource("Gradient_tdg3f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.97, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(32, 32)
@@ -11,15 +25,58 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tkgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tdg3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tdg3f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hp6x6")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dtqjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ncpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wi0c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hp6x6")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 13.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1828279768]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_kpjcp")
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1968061714]
+scale = Vector2(9.563, 8.073)
+color = Color(0.9955159, 0.99566656, 0.9951542, 1)
+energy = 4.14
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_dtqjt")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1193518445]
 shape = SubResource("RectangleShape2D_1bvp3")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518303808]
-texture = ExtResource("2_kne1u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1907744985]
 position = Vector2(110, -80)
@@ -27,3 +84,11 @@ zoom = Vector2(2, 2)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1295047191]
 replication_config = SubResource("SceneReplicationConfig_kpjcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2144985183]
+texture_filter = 1
+position = Vector2(0, -6.37)
+scale = Vector2(2.6562498, 2.8125)
+sprite_frames = SubResource("SpriteFrames_3tkgg")
+animation = &"Run"
+frame_progress = 0.29569277
